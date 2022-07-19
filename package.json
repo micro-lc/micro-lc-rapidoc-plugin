@@ -57,7 +57,6 @@
   },
   "devDependencies": {
     "@babel/register": "^7.18.9",
-    "@mia-platform-internal/static-files-cli": "^1.2.0",
     "@rescripts/cli": "^0.0.16",
     "@staticdeploy/mock-server": "^3.0.0",
     "@testing-library/jest-dom": "^5.16.4",
