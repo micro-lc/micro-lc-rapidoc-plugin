@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "7718a5cf74db281bdc3bbd75890f209168b64fcc",
+    "title": "Demo",
+    "description": "Demo project for Mia-Platform Console"
+  },
+  "paths": {},
+  "components": {
+    "securitySchemes": {
+      "APISecretHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "secret"
+      }
+    }
+  },
+  "tags": []
+}

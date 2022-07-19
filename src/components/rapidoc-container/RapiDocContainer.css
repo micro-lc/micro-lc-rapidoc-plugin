@@ -1,0 +1,47 @@
+/*
+*Copyright © 2021-present Mia s.r.l.
+*All rights reserved
+
+*Mia-Platform uses Open Source Software.
+*Copyright notice are available at https://docs.mia-platform.eu/info/oss/.
+*/
+
+rapi-doc {
+    --primary-color: var(--microlc-primary-color, #ff591e);
+    --bg: var(--microlc-body-background, #FFFFFF);
+    --fg: var(--microlc-text-color, #666666);
+    --placeholder-color: var(--microlc-primary-color, #9e9e9e);
+    --nav-bg-color: var(--microlc-body-background, #4b4b4b);
+    --nav-hover-text-color: var(--microlc-primary-color, #fff);
+    --nav-hover-bg-color: transparent;
+    --nav-accent-color: var(--microlc-primary-color, #ff7237);
+    --nav-text-color: var(--microlc-menu-label-color, rgba(255, 255, 255, 0.65));
+    --input-bg: transparent;
+    --hover-color:var(--microlc-primary-color-tint-89, #fafafa);
+
+    --red: red;
+    --green: green;
+    --orange: darkorange;
+    --purple: purple;
+
+    --font-size-regular: 16px;
+    --font-size-small: var(--font-size-regular);
+    --font-size-mono: var(--font-size-regular);
+    --font-regular: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    --font-mono: var(--font-regular);
+}
+
+[dark-theme] rapi-doc {
+    --primary-color: var(--microlc-primary-color-tint-89, #ff591e);
+    --nav-accent-color: var(--microlc-primary-color-tint-89, #ff7237);
+    --nav-hover-text-color: var(--microlc-primary-color-tint-89, #fff);
+    --placeholder-color: var(--microlc-primary-color-tint-89, #9e9e9e);
+}
+
+#microlc_rapidoc_plugin {
+    height: 100%;
+}
+
+.rapidoc_container {
+    height: 100%;
+}

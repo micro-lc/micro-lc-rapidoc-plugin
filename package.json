@@ -1,0 +1,85 @@
+{
+  "name": "microlc_rapidoc_plugin",
+  "version": "0.1.2",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "@mia-platform/microlc-ui-components": "^0.1.0",
+    "jsonpath-plus": "^5.0.7",
+    "prop-types": "^15.8.1",
+    "rapidoc": "^9.1.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "scripts": {
+    "start": "rescripts start",
+    "build": "NODE_ENV=production INLINE_RUNTIME_CHUNK=false rescripts build",
+    "test": "rescripts test",
+    "lint": "eslint src --ext .js,.jsx",
+    "coverage": "yarn test --coverage --watchAll=false",
+    "dev:unit-watch": "yarn test",
+    "dev:mock-server": "mock-server --delay 200 --watch --require @babel/register",
+    "dev:styleguide": "styleguidist server",
+    "dev": "npm-run-all -p dev:** start",
+    "styleguide:build": "styleguidist build",
+    "update-docker-version": "sed -i.bck \"s|version=\\\"[0-9]*\\.[0-9]*\\.[0-9]*.*\\\"|version=\\\"${npm_package_version}\\\"|\" Dockerfile",
+    "version": "npm run update-docker-version && rm -fr Dockerfile.bck && git add Dockerfile",
+    "prepare": "husky install"
+  },
+  "proxy": "http://localhost:3456",
+  "standard-version": {
+    "skip": {
+      "bump": true,
+      "tag": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all lint coverage"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/register": "^7.18.9",
+    "@mia-platform-internal/static-files-cli": "^1.2.0",
+    "@rescripts/cli": "^0.0.16",
+    "@staticdeploy/mock-server": "^3.0.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/react-hooks": "^5.1.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "enzyme": "^3.11.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-flowtype": "^5.4.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^8.0.1",
+    "npm-run-all": "^4.1.5",
+    "react-helmet": "^6.1.0",
+    "react-styleguidist": "^11.2.0",
+    "standard-version": "^9.5.0"
+  }
+}

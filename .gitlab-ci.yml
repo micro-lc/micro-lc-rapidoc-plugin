@@ -1,0 +1,26 @@
+include:
+  - project: "platform/pipelines-templates"
+    file: "/build/node/template-react-yarn.yml"
+    ref: master
+  - project: "platform/pipelines-templates"
+    file: "/build/node/template-react-yarn-test-latest.yml"
+    ref: master
+
+.docker-job:
+  variables:
+    COMMIT_SHA_FILEPATH: /etc/nginx/commit.sha
+
+build-site:
+  variables:
+    NEXUS_BASE_URL: https://${NEXUS_URL}
+  script:
+    - yarn build
+    - export PATCH_TAG=$(echo ${CI_COMMIT_TAG} | sed s/^.*@//)
+    - ./node_modules/.bin/static-files bundle --from=build --bundlePath=${BUNDLE_PATH} --bundleVersion=${PATCH_TAG:-latest}
+
+default:
+  image: node:fermium-alpine
+
+variables:
+  IMAGE_NAME: dev-portal/microlc-rapidoc-plugin
+  BUNDLE_PATH: dev-portal/microlc-rapidoc-plugin
