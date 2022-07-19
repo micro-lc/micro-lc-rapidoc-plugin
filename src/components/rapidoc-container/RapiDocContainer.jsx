@@ -1,5 +1,5 @@
 /*
- * Copyright © 2022-present Mia s.r.l.
+ * Copyright © 2021-present Mia s.r.l.
  * All rights reserved
  *
  * Mia-Platform uses Open Source Software.
@@ -15,7 +15,7 @@ import './RapiDocContainer.css'
 
 const RAPIDOC_LOADED_EVENT = 'spec-loaded'
 
-export const RapiDocContainer = ({apiSpec}) => {
+export const RapiDocContainer = ({apiSpec, activeRule}) => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -36,6 +36,7 @@ export const RapiDocContainer = ({apiSpec}) => {
                 fill-request-fields-with-example="false"
                 load-fonts="false"
                 render-style="focused"
+                route-prefix={activeRule}
                 show-header="false"
             />
         </div>
@@ -44,6 +45,7 @@ export const RapiDocContainer = ({apiSpec}) => {
 }
 
 RapiDocContainer.propTypes = {
+  activeRule: PropTypes.string.isRequired,
   apiSpec: PropTypes.object.isRequired
 }
 

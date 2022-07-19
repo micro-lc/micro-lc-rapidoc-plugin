@@ -15,7 +15,7 @@ import {enrichTags, enrichTagsVendorPrefix} from '../../utils/swagger-enricher/S
 
 import './RapiDocSpecEnricher.css'
 
-export const RapiDocSpecEnricher = ({openApiSpecUrl}) => {
+export const RapiDocSpecEnricher = ({openApiSpecUrl, activeRule}) => {
   const [enricherState, setEnricherState] = useState({specContent: '', retrieveError: false, loading: true})
 
   useEffect(() => {
@@ -33,12 +33,13 @@ export const RapiDocSpecEnricher = ({openApiSpecUrl}) => {
     <>
         {enricherState.retrieveError && <RapiDocRetrieveError/>}
         {enricherState.loading && <LoadingAnimation/>}
-        {enricherState.specContent && <RapiDocContainer apiSpec={enricherState.specContent}/>}
+        {enricherState.specContent && <RapiDocContainer activeRule={activeRule} apiSpec={enricherState.specContent}/>}
     </>
   )
 }
 
 RapiDocSpecEnricher.propTypes = {
+  activeRule: PropTypes.string,
   openApiSpecUrl: PropTypes.string
 }
 

@@ -20,7 +20,7 @@ function retrieveContainer (props) {
 }
 
 function render (props) {
-  ReactDOM.render(<RapiDocSpecEnricher openApiSpecUrl={props.openApiSpecUrl}/>, retrieveContainer(props))
+  ReactDOM.render(<RapiDocSpecEnricher activeRule={props.activeRule} openApiSpecUrl={props.openApiSpecUrl}/>, retrieveContainer(props))
 }
 
 export async function mount (props) {
