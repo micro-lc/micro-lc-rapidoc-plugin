@@ -36,7 +36,7 @@ export const RapiDocContainer = ({apiSpec, activeRule}) => {
                 fill-request-fields-with-example="false"
                 load-fonts="false"
                 render-style="focused"
-                route-prefix={activeRule}
+                route-prefix={`${activeRule}/`}
                 show-header="false"
             />
         </div>
